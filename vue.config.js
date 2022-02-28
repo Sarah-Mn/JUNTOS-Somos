@@ -1,3 +1,3 @@
-module.exports = {
-    publicPath: '/Hire-Challenge/'
-}
+// module.exports = {
+//     publicPath: '/Hire-Challenge/'
+// }
