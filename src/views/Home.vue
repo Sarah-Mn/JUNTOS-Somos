@@ -1,18 +1,33 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+  <div>
+    <Header @emitValue="getValue" />
+    <Path />
+    <Main :searching="searchValue" />
+    <Footer />
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
-import HelloWorld from '@/components/HelloWorld.vue'; // @ is an alias to /src
+<script lang="ts" setup>
+import { ref } from "vue";
+import Header from "../components/Header.vue";
+import Path from "../components/Path.vue";
+import Main from "../components/Main.vue";
+import Footer from "../components/Footer.vue";
 
-export default defineComponent({
-  name: 'Home',
-  components: {
-    HelloWorld,
-  },
-});
+const searchValue = ref("");
+
+const getValue = (b: string) => {
+  searchValue.value = b;
+  // console.log("home: ", searchValue.value);
+};
 </script>
+
+<style>
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  /* width: 100%; */
+  /* background-color: red; */
+}
+</style>
