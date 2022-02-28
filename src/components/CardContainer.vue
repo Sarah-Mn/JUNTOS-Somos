@@ -26,6 +26,7 @@ import Card from "./Card.vue";
 import CardSkeleton from "./CardSkeleton.vue";
 import { onMounted, ref, defineProps, computed, onUpdated } from "vue";
 import Pagination from "./Pagination.vue";
+import axios from "axios";
 
 const props = defineProps({
   searching: String,
@@ -62,10 +63,14 @@ const onPageChange = (page: number) => {
 };
 
 onMounted(async () => {
-  await fetch("http://localhost:3000/results")
-    .then((res) => res.json())
-    .then((data) => (peoples.value = data))
-    .catch((err) => console.error(err));
+  await axios
+    .get("/results.json")
+    .then((res) => {
+      peoples.value = res.data.results;
+    })
+    .catch((err) => {
+      console.error(err);
+    });
 
   totalPages.value = peoples.value.length / 10;
   peoplePerPage.value = peoples.value.slice(0, 9);
