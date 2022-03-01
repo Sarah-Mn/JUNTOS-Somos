@@ -1,18 +1,18 @@
-#!/usr/bin/env sh
+# #!/usr/bin/env sh
 
-# abort on errors
-set -e
+# # abort on errors
+# set -e
 
-# build
-npm run build
+# # build
+# npm run build
 
-# navigate into the build output directory
-cd dist
+# # navigate into the build output directory
+# cd dist
 
-git init
-git add -A
-git commit -m 'deploy'
+# git init
+# git add -A
+# git commit -m 'deploy'
 
-git push -f git@github.com:Sarah-Mn/Hire-Challenge.git master:gh-pages
+# git push -f git@github.com:Sarah-Mn/Hire-Challenge.git master:gh-pages
 
-cd -
+# cd -
